@@ -1,6 +1,7 @@
 {
     "builds": [{
         "src": "qquiz_app/wsgi.py",
+        "user": "@vercel/python3",
         "config": {
             "maxLambdaSize": "100mb",
             "runtime": "python3.9"
