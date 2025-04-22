@@ -16,6 +16,13 @@ Follow the steps below to run the project locally.
 - `pip` (Python package manager)
 - Git (optional, for cloning)
 
+
+---
+
+## 🖥️ Windows Setup and  ## 🐧🟠 Ubuntu/Linux Setup
+
+```bash
+
 ---
 
 ## 🖥️ Windows Setup
@@ -35,6 +42,7 @@ pip install -r requirements.txt
 
 # Step 5: Run the development server
 python manage.py runserver
+
 
 ---
 
