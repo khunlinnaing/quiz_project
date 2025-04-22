@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+        <!-- Logo/App Name -->
+        <div class="text-center">
+            <h1 class="text-3xl font-extrabold text-gray-900">Quiz App</h1>
+            <p class="mt-2 text-sm text-gray-600">Create your account to start quizzing</p>
+        </div>
+
+        <!-- Form -->
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            
+            <!-- Error Messages -->
+            {% if form.errors %}
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded" role="alert">
+                    <p class="font-medium">Please correct the errors below:</p>
+                    <ul class="mt-2 text-sm">
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <!-- Form Fields -->
+            <div class="space-y-4">
+                <!-- Username -->
+                <div>
+                    <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input 
+                        type="text" 
+                        name="{{ form.username.name }}" 
+                        id="{{ form.username.id_for_label }}" 
+                        value="{{ form.username.value|default_if_none:'' }}"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input 
+                        type="email" 
+                        name="{{ form.email.name }}" 
+                        id="{{ form.email.id_for_label }}" 
+                        value="{{ form.email.value|default_if_none:'' }}"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <!-- Password -->
+                 <!-- Password -->
+<div class="relative">
+    <label for="{{ form.password1.id_for_label }}" class="block text-sm font-medium text-gray-700">Password</label>
+    <input 
+        type="password" 
+        name="{{ form.password1.name }}" 
+        id="{{ form.password1.id_for_label }}"
+        class="mt-1 block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        placeholder="Enter your password"
+        required
+    >
+    <button type="button"
+        class="absolute right-2 top-3/4 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+        onclick="togglePassword('{{ form.password1.id_for_label }}', this)">
+        👁️
+    </button>
+</div>
+
+<!-- Confirm Password -->
+<div class="relative mt-4">
+    <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+    <input 
+        type="password" 
+        name="{{ form.password2.name }}" 
+        id="{{ form.password2.id_for_label }}"
+        class="mt-1 block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        placeholder="Confirm your password"
+        required
+    >
+    <button type="button"
+        class="absolute right-2 top-3/4 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+        onclick="togglePassword('{{ form.password2.id_for_label }}', this)">
+        👁️
+    </button>
+</div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button 
+                    type="submit" 
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform hover:scale-105 transition-transform"
+                >
+                    Sign Up
+                </button>
+            </div>
+        </form>
+
+        <!-- Login Link -->
+        <p class="text-center text-sm text-gray-600">
+            Already have an account? 
+            <a href="{% url 'login' %}" class="font-medium text-blue-600 hover:text-blue-500">Sign in</a>
+        </p>
+    </div>
+</div>
+<script>
+    function togglePassword(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        btn.textContent = isPassword ? '🙈' : '👁️'; // toggle icon
+    }
+</script>
+
+{% endblock %}

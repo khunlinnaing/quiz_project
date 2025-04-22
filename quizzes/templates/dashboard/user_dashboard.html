@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Your Quiz History</h1>
+    <div class="bg-white p-4 rounded shadow">
+        {% if attempts %}
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2">Quiz</th>
+                        <th class="p-2">Score</th>
+                        <th class="p-2">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for attempt in attempts %}
+                        <tr class="border-t">
+                            <td class="p-2">{{ attempt.quiz.title }}</td>
+                            <td class="p-2">{{ attempt.score|floatformat:2 }}% </td>                            </td>
+                            <td class="p-2">{{ attempt.attempted_at }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You haven't taken any quizzes yet.</p>
+        {% endif %}
+    </div>
+{% endblock %}

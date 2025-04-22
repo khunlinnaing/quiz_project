@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Add New Quiz</h1>
+    <form method="post" class="bg-white p-4 rounded shadow space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block font-semibold">Title</label>
+            <input type="text" name="title" class="border rounded p-2 w-full" required>
+        </div>
+        <div>
+            <label class="block font-semibold">Description</label>
+            <textarea name="description" class="border rounded p-2 w-full" rows="4"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Quiz</button>
+    </form>
+{% endblock %}
