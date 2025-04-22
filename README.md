@@ -40,11 +40,13 @@ python manage.py runserver
 
 ## 🐧🟠 Ubuntu/Linux Setup
 
+Follow these steps to run the project on Ubuntu or other Linux distributions:
+
 ```bash
 # Step 1: Create a virtual environment
 python3 -m venv env
 
-# Step 2: Activate the environment
+# Step 2: Activate the virtual environment
 source env/bin/activate
 
 # Step 3: Navigate to the project directory
@@ -55,3 +57,4 @@ pip install -r requirements.txt
 
 # Step 5: Run the development server
 python manage.py runserver
+
