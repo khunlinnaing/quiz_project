@@ -1,0 +1,16 @@
+{
+    "builds": [{
+        "src": "qquiz_app/wsgi.py",
+        "user": "Khun Lin Naig Oo",
+        "config": {
+            "maxLambdaSize": "100mb",
+            "runtime": "python3.9"
+        }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "qquiz_app/wsgi.py"
+        }
+    ]
+}
