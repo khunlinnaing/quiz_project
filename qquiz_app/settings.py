@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.vercel.app']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://quiz-project-20cz.onrender.com',
+]
 # Application definition
 
 INSTALLED_APPS = [
