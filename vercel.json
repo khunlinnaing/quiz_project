@@ -1,7 +1,6 @@
 {
     "builds": [{
         "src": "qquiz_app/wsgi.py",
-        "user": "KhunLinNaigOo",
         "config": {
             "maxLambdaSize": "100mb",
             "runtime": "python3.9"
