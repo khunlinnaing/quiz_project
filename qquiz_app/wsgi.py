@@ -13,5 +13,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'qquiz_app.settings')
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 application = get_wsgi_application()
