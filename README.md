@@ -36,8 +36,9 @@ pip install -r requirements.txt
 # Step 5: Run the development server
 python manage.py runserver
 
+---
 ## 🐧🟠 Ubuntu/Linux Setup
-
+```bash
 # Step 1: Create a virtual environment
 python3 -m venv env
 
