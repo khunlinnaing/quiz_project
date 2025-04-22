@@ -1,18 +1,15 @@
 {
+    "version": 2,
     "builds": [
       {
-        "src": "qquiz_app/wsgi.py",
-        "use": "@vercel/python",
-        "config": {
-          "runtime": "python3.9",
-          "maxLambdaSize": "100mb"
-        }
+        "src": "api/index.py",
+        "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "qquiz_app/wsgi.py"
+        "dest": "api/index.py"
       }
     ]
   }
